@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>끄투리오 - 2022년 7월 이전 공지사항</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+            margin-left: 2.5rem;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+    <div class="preamble">
+        <div class="preamble__guild-icon-container">
+            <img class="preamble__guild-icon" src="https://cdn.discordapp.com/icons/395143193114705920/44d5723822e7ecefc840f04a0075b507.png" alt="Guild icon" loading="lazy">
+        </div>
+        <div class="preamble__entries-container">
+            <div class="preamble__entry">끄투리오</div>
+            <div class="preamble__entry">&#128227; ： 점검 내역</div>
+    
+                <div class="preamble__entry preamble__entry--small">2022년 7월 2일 이전까지 끄투리오 공식 디스코드에서 공지되었던 점검 내역을 안내합니다.</div>
+    
+        </div>
+    </div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-880812441657819196" class="chatlog__message-container " data-message-id="880812441657819196">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 08월 27일 10시 54분 10초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s><div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-md"># 점검 기간
+2021년 8월 28일 오전 12:30 ~ 오전 12:40 (약 10분간, KST 기준)
+
+# 점검 내용
+1. 단어 데이터베이스 업데이트
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div></s>
+
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 08월 28일 12시 44분 56초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-885852842122936330" class="chatlog__message-container " data-message-id="885852842122936330">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 09월 10일 08시 42분 55초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s>
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2021년 9월 10일 오후 08:50 ~ 오후 09:50 (약 1시간 동간, KST 기준)
+
+# 점검 내용
+1. 서버 장비 점검
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+</s>
+
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 09월 25일 10시 47분 33초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-891319900981850113" class="chatlog__message-container " data-message-id="891319900981850113">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 09월 25일 10시 47분 04초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s>
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2021년 9월 26일 오전 01:00 ~ 오전 06:00 (약 5시간 동안, KST 기준)
+
+# 점검 내용
+1. 호스트 서버 BIOS 및 펌웨어 버전 업데이트
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+</s>
+
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 09월 26일 02시 32분 33초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-891376692604596324" class="chatlog__message-container " data-message-id="891376692604596324">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 09월 26일 02시 32분 44초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@here</span>  점검이 조기에 완료되었습니다.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-894572638494683196" class="chatlog__message-container " data-message-id="894572638494683196">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 10월 04일 10시 12분 17초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+<s>
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2021년 10월 4일 오후 10:40 ~ 오후 11:00 (약 20분 동안, KST 기준)
+
+# 점검 내용
+1. 1.1.0 업데이트 진행
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+</s>
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 10월 05일 10시 50분 11초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-894943924689449032" class="chatlog__message-container " data-message-id="894943924689449032">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 10월 05일 10시 47분 38초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s><div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2021년 10월 5일 오후 11:19 ~ 오후 11:21 (약 2분 동안, KST 기준)
+
+# 점검 내용
+1. 1.1.0a 업데이트 진행
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div></s>
+
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 10월 05일 11시 22분 00초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-920181491877675038" class="chatlog__message-container " data-message-id="920181491877675038">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 12월 14일 02시 12분 43초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><div class="chatlog__markdown-quote"><div class="chatlog__markdown-quote-border"></div><div class="chatlog__markdown-quote-content"><strong>서비스 불안정 현상 안내</strong>
+서비스 불안정 현상으로 인한 복구 작업을 안내드립니다.
+</div></div>
+<strong>2021-12-14 13:55</strong> 서비스 불안정 현상이 발견되어 현재 조치 중에 있습니다.
+<strong>2021-12-14 14:15</strong> 서비스가 정상 복구되었습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 12월 14일 02시 19분 11초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-923950529791545354" class="chatlog__message-container " data-message-id="923950529791545354">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 12월 24일 11시 49분 32초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">커뮤니티 및 위키 서비스 이전 작업으로 인하여 25일까지 서비스 중단 현상이 발생할 수 있음을 알려드립니다.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-924176386166505532" class="chatlog__message-container " data-message-id="924176386166505532">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2021년 12월 25일 02시 47분 00초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><s>끄투리오 커뮤니티 및 위키 예상 복구 일시를 안내드립니다.
+
+<strong>예상 복구 일시:</strong> 2021/12/25 오후 </s>4:30<s> </s>6:30<s> </s>5:30 (커뮤니티) 6:00 (위키)<s> (KST 기준)
+상기 일정은 진행 현황에 따라 변동될 수 있습니다.
+
+<strong>오후 5:25</strong> 커뮤니티 복구 완료
+<strong>오후 5:45</strong> 위키 복구 완료</s>
+
+모든 서비스가 정상 복구되었습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2021년 12월 25일 05시 45분 15초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930018945329684521" class="chatlog__message-container " data-message-id="930018945329684521">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 01월 10일 05시 43분 15초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s>
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2022년 01월 10일 오후 06:00 ~ 오후 06:05 (약 5분 동안, KST 기준)
+
+# 점검 내용
+1. 단어 변경 사항 라이브 서버 적용
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+</s>
+
+점검이 완료되었습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 01월 10일 06시 02분 33초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-959758521782648853" class="chatlog__message-container " data-message-id="959758521782648853">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 04월 02일 07시 17분 43초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s>
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2022년 04월 02일 오후 07:30 ~ 오후 08:30 (약 1시간 동안, KST 기준)
+
+# 점검 내용
+1. 서버 업데이트
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+</s>
+
+점검이 완료되었으나, 당분간 조금씩 불안정할 수 있습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 04월 02일 08시 34분 29초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-980504516589932594" class="chatlog__message-container " data-message-id="980504516589932594">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 05월 30일 01시 14분 53초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>서비스 불안정 현상 안내</strong>
+서비스 불안정 현상으로 인한 복구 작업을 안내드립니다.
+
+<strong>2022-05-30 01:14</strong> 서비스 불안정 현상이 발견되어 현재 조치 중에 있습니다.
+<strong>2022-05-30 01:19</strong> 모든 서비스가 정상 복구되었습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 05월 30일 01시 19분 48초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-981843735052701696" class="chatlog__message-container " data-message-id="981843735052701696">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 02일 05시 56분 28초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">서비스 불안정 현상 안내
+
+<strong>2022-06-02 17:55</strong> 1.1.2 패치 이후 &lt;끄투 봇&gt; 이용 시 게임 종료 후 경험치가 정상적으로 지급되지 않는 현상이 발견되었습니다.
+<strong>2022-06-02 19:15</strong> 원인이 파악되어 22시 30분에 긴급 점검이 진행될 예정입니다.
+<strong>2022-06-02 22:30</strong> 문제 해결에 시간이 다소 소요될 것으로 보입니다. 이용에 불편을 드려 대단히 죄송합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 06월 02일 10시 42분 49초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-982464841275031613" class="chatlog__message-container " data-message-id="982464841275031613">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 04일 11시 04분 31초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2022년 6월 4일 오후 1:00 ~ 오후 1:05 (약 5분 동안, KST 기준)
+
+# 점검 내용
+1. 1.1.2b 업데이트 진행
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+
+감사합니다.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-983360598601515129" class="chatlog__message-container " data-message-id="983360598601515129">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 06일 10시 23분 56초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2022년 6월 6일 오후 11:00 ~ 오후 11:05 (약 5분 동안, KST 기준)
+
+# 점검 내용
+1. 1.1.2c 업데이트 진행
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div>
+
+감사합니다.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-985127984803504138" class="chatlog__message-container " data-message-id="985127984803504138">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 11일 07시 26분 54초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">서비스 불안정 현상 안내
+
+<strong>2022-06-11 19:15</strong> 치명적인 서비스 불안정 현상이 발견되어 현재 긴급 조치 중에 있습니다.
+
+<strong>2022-06-11 19:30</strong> 서비스 복구 조치 #CA-220611001(이)가 완료되었습니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 06월 11일 07시 58분 56초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-986671718091329537" class="chatlog__message-container " data-message-id="986671718091329537">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 16일 01시 41분 09초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> 
+곧 진행될 점검 1건에 대하여 사전 공지드립니다.
+
+<s><div class="chatlog__markdown-pre chatlog__markdown-pre--multiline language-markdown"># 점검 기간
+2022년 6월 16일 오전 2:00 ~ 오후 2:45 (약 45분 동안, 기존 5분에서 40분 연장됨, KST 기준)
+
+# 점검 내용
+1. 게임 서버 보안 인증서(SSL) 교체 작업
+
+# 점검 영향
+해당 시간대 끄투리오 게임 서비스 이용 불가</div></s>
+
+점검이 완료되었습니다.
+감사합니다.</span>
+
+                            <span class="chatlog__edited-timestamp" title="2022년 06월 16일 02시 50분 02초">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-986681781942091806" class="chatlog__message-container " data-message-id="986681781942091806">
+        <div class="chatlog__message">
+            
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(26, 188, 156)" title="끄투리오 공지사항" data-user-id="">끄투리오 점검 안내</span>
+
+
+                        <span class="chatlog__timestamp">2022년 06월 16일 02시 21분 08초</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">점검이 연장되어 2시 40분까지 진행됩니다</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+</body>
+
+</html>
